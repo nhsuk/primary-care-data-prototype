@@ -8,3 +8,4 @@ public
 assets/scss/nhsuk
 
 tests/pa11y/reports/*.*
+*.idea/*
