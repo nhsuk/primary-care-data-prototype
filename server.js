@@ -54,6 +54,9 @@ const hbs = handlebars.create({
   helpers: {
     'raw-helper': function (options) {
       return options.fn()
+    },
+    'partial': function (name) {
+      return name
     }
   }
 })
@@ -82,6 +85,7 @@ app.get(/\.html?$/i, function (req, res) {
 
 routes(router, hbs)
 app.use('/', router)
+
 
 // Strip .html and .htm if provided
 app.get(/\.html?$/i, function (req, res) {

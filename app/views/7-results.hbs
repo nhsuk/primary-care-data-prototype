@@ -1,0 +1,5 @@
+<h2>{{ locationHeading }}</h2>
+<br />
+{{#each partials}}
+    {{> (partial . this)}}
+{{/each}}
