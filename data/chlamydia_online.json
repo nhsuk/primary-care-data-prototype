@@ -1,0 +1,510 @@
+[{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Chlamydia Screening Postal Kits - Leeds",
+         "toString": [
+            null
+         ]
+      },
+      "type": "online",
+      "generalPublic": "paid",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18826416",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T11:51:14Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Leeds",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18826416?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Leeds",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569025"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fchlamydia-freeonlinetestsforu-25s%2f18826416&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18826416",
+         "title": {
+            "_type": "text",
+            "__text": "Chlamydia Screening Postal Kits - Leeds",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T11:51:14Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Chlamydia Screening Postal Kits - Leeds",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18826416?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Chlamydia Screening Postal Kits - Leeds",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569025"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia Screening Postal Kits - Leeds",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia - free online tests for u-25s",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.freetest.me/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {},
+               "contact": {
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Provides FREE and confidential chlamydia screening for young people under 25. Testing for chlamydia is easy, you can do it yourself at home. If your test is positive the treatment is simple, and the whole process is confidential.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Visit www.freetest.me to request a FREE home postal kit. The kit is sent in plain packaging and the whole process is confidential.  For details of sexual health clinics in your area, as well as when they are available, go to www.leedssexualhealth.com",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+         "toString": [
+            null
+         ]
+      },
+      "type": "online",
+      "generalPublic": "paid",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18908522",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T11:52:21Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18908522?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569257"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fchlamydia-freeonlinetestsforu-25s%2f18908522&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18908522",
+         "title": {
+            "_type": "text",
+            "__text": "Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T11:52:21Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18908522?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569257"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia Screening Postal Kits - Wakefield, Dewsbury, Batley and Spen",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia - free online tests for u-25s",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.bclear.org.uk/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {},
+               "contact": {
+                  "email": {
+                     "__text": "bclear@spectrum-cic.nhs.uk",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Provides FREE and confidential chlamydia screening for young people under 25. Testing for chlamydia is easy, you can do it yourself at home and it&apos;s completely confidential.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Visit www.bclear.org.uk to request a FREE home postal kit. The kit is sent in plain packaging and the whole process is confidential.  For details of locations in your area, as well as when they are available, call (Monday to Friday 9am - 5pm) on 01924 311 431",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Chlamydia Screening Postal Kits - Bradford & Airedale",
+         "toString": [
+            null
+         ]
+      },
+      "type": "online",
+      "generalPublic": "paid",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18766361",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T11:52:49Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Bradford & Airedale",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18766361?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Chlamydia Screening Postal Kits - Bradford & Airedale",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569888"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fchlamydia-freeonlinetestsforu-25s%2f18766361&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18766361",
+         "title": {
+            "_type": "text",
+            "__text": "Chlamydia Screening Postal Kits - Bradford & Airedale",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T11:52:49Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Chlamydia Screening Postal Kits - Bradford & Airedale",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydia-freeonlinetestsforu-25s/18766361?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Chlamydia Screening Postal Kits - Bradford & Airedale",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569888"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia Screening Postal Kits - Bradford & Airedale",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia - free online tests for u-25s",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.freetest.me/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {},
+               "contact": {
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "0",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Provides FREE and confidential chlamydia screening for young people under 25. Testing for chlamydia is easy, you can do it yourself at home. If your test is positive the treatment is simple, and the whole process is confidential.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Visit www.freetest.me to request a FREE home postal kit. The kit is sent in plain packaging and the whole process is confidential.  For details of locations in your area, as well as when they are available, call (Monday to Friday 9am - 5pm) on 01274 221 075. Or call 030 3330 9500 to book an appointment at a sexual health clinic in Bradford.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+}
+]

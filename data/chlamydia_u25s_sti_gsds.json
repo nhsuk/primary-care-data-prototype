@@ -1,0 +1,1489 @@
+[{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - 3 In 1 Site - Platitudeform",
+         "toString": [
+            null
+         ]
+      },
+      "type": "generic",
+      "generalPublic": "available",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18768320",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T11:58:33Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - 3 In 1 Site - Platitudeform",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18768320?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - 3 In 1 Site - Platitudeform",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569024"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fchlamydiascreeningunder25s%2f18768320&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18768320",
+         "title": {
+            "_type": "text",
+            "__text": "3 In 1 Site - Platitudeform",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T11:58:33Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "3 In 1 Site - Platitudeform",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18768320?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "3 In 1 Site - Platitudeform",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569024"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "3",
+                  "__text": "3 In 1 Site - Platitudeform",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia screening under 25s",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.leedssexualhealth.com/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "20 York Place",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS1 2EX",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 397 1300",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.553686976",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.79718",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "The 3 In 1 sites are for under 25s and provide:   • C-Card Registration and Pick up  • Pregnancy Testing  • Chlamydia Testing",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "General notes",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Free condoms, lubricants, femidoms and oral sex dams are available from a number of places across Leeds as part of the C-card scheme. The number of condoms you are allowed and where you can pick them up from depends on your age. For more information and details of venues, go to www.leedssexualhealth.com",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Monday to Thursdayda 9am - 5pm. Friday 9am - 4.30pm. Late night appointments (after office hours) available on request.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Boots UK",
+         "toString": [
+            null
+         ]
+      },
+      "type": "generic",
+      "generalPublic": "available",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18839883",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T11:59:41Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Boots UK",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18839883?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Boots UK",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569023"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fchlamydiascreeningunder25s%2f18839883&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18839883",
+         "title": {
+            "_type": "text",
+            "__text": "Boots UK",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T11:59:41Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Boots UK",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/chlamydiascreeningunder25s/18839883?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Boots UK",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569023"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "B",
+                  "__text": "Boots UK",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "C",
+                  "__text": "Chlamydia screening under 25s",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.boots.com/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "Public Concourse",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds City Station",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS1 4DT",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 242 1713",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.547983408",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.79532",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Pharmacy providing:   • Free emergency contraception (morning after pill) for under 25s.  • Free pregnancy tests for under 25s.  • Free chlamydia tests for under 25s.  • Advice and information about STI testing and contraception.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "General notes",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "If the pharmacy area is busy and it is not easy to talk about your sexual health, ask to speak to the pharmacist in the private consultation area.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Available during normal pharmacy opening hours, but call to check service is running prior to visiting.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Leeds Centre For Sexual Health",
+         "toString": [
+            null
+         ]
+      },
+      "type": "generic",
+      "generalPublic": "free",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/stitestingandtreatment/18815975",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-27T14:29:09Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Leeds Centre For Sexual Health",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/stitestingandtreatment/18815975?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Leeds Centre For Sexual Health",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569175"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fstitestingandtreatment%2f18815975&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/stitestingandtreatment/18815975",
+         "title": {
+            "_type": "text",
+            "__text": "Leeds Centre For Sexual Health",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-27T14:29:09Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Leeds Centre For Sexual Health",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/stitestingandtreatment/18815975?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Leeds Centre For Sexual Health",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569175"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "L",
+                  "__text": "Leeds Centre For Sexual Health",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "S",
+                  "__text": "STI testing and treatment",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.leedssexualhealth.com/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "Merrion Centre - 1st Floor",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "50 Merrion Way",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS2 8NG",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 392 0333",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.544089198",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.80165",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "This is a clinic specialising in providing sexual health services. The service includes investigation and treatment of all sexually transmitted infections including HIV/AIDS. Sexual health advice, information, education and counselling available. Confidential service. No age limit.  The appointment booking line is open 8am-5pm. The information helpline is open 9am-8pm.  No appointment is necessary for the Walk-In but patients will be allocated a time on a first come, first served basis as there is a limit to the number of patients we can see. Please note you may have to wait for an appointment for between 2-3 hours. Patients are advised to arrive half an hour before the start of the daily session to secure a place.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Opening times may be subject to change, please visit www.leedssexualhealth.com for up to date information.  Monday 8am - 8pm Tuesday 8.15am - 8pm Wednesday 8am - 8pm Thursday 8.15am - 8pm Friday 8am - 4.30pm Saturday 11.15am - 3pm  Drop-in Monday, Tuesday and Friday from 8.10am to 12.30pm ONLY All other sessions are appointment-only, please call 0113 392 0333 to book",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Leeds Centre For Sexual Health",
+         "toString": [
+            null
+         ]
+      },
+      "type": "generic",
+      "generalPublic": "free",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18906548",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T08:37:02Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Leeds Centre For Sexual Health",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18906548?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Leeds Centre For Sexual Health",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569175"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fsexualhealthinformationandsupport%2f18906548&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18906548",
+         "title": {
+            "_type": "text",
+            "__text": "Leeds Centre For Sexual Health",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T08:37:02Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Leeds Centre For Sexual Health",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18906548?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Leeds Centre For Sexual Health",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569175"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "L",
+                  "__text": "Leeds Centre For Sexual Health",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "S",
+                  "__text": "Sexual health information and support",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.leedssexualhealth.com/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "Merrion Centre - 1st Floor",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "50 Merrion Way",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS2 8NG",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 392 0333",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.544089198",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.80165",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "This is a clinic specialising in providing sexual health services. The service includes investigation and treatment of all sexually transmitted infections including HIV/AIDS. Sexual health advice, information, education and counselling available. Confidential service. No age limit.  The appointment booking line is open 8am-5pm. The information helpline is open 9am-8pm.  No appointment is necessary for the Walk-In but patients will be allocated a time on a first come, first served basis as there is a limit to the number of patients we can see. Please note you may have to wait for an appointment for between 2-3 hours. Patients are advised to arrive half an hour before the start of the daily session to secure a place.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Opening times may be subject to change, please visit www.leedssexualhealth.com for up to date information.  Monday 8am - 8pm Tuesday 8.15am - 8pm Wednesday 8am - 8pm Thursday 8.15am - 8pm Friday 8am - 4.30pm Saturday 11.15am - 3pm  Drop-in Monday, Tuesday and Friday from 8.10am to 12.30pm ONLY All other sessions are appointment-only, please call 0113 392 0333 to book",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - CaSH Service - Burmantofts Health Centre",
+         "toString": [
+            null
+         ]
+      },
+      "type": "clinic",
+      "generalPublic": "free",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18848184",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T08:45:33Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - CaSH Service - Burmantofts Health Centre",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18848184?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - CaSH Service - Burmantofts Health Centre",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8571238"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fsexualhealthinformationandsupport%2f18848184&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18848184",
+         "title": {
+            "_type": "text",
+            "__text": "CaSH Service - Burmantofts Health Centre",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T08:45:33Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "CaSH Service - Burmantofts Health Centre",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18848184?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "CaSH Service - Burmantofts Health Centre",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8571238"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "C",
+                  "__text": "CaSH Service - Burmantofts Health Centre",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "S",
+                  "__text": "Sexual health information and support",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.leedssexualhealth.com/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "Cromwell Mount",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS9 7ST",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 392 0333",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.527092338",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.80226",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Leeds Contraception and Sexual Health Service (CaSH) provide a number of services to all age groups. As well as contraception, the drop-in clinics provide free services such as pregnancy testing, emergency contraception, testing for chlamydia and other sexually-transmitted infections, plus issuing free condoms. The team also offers friendly and confidential help and advice. Specialist IUD/IUS/Implant clinics are by appointment only after your initial consultation at one of the drop in clinics.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Opening times may be subject to change, please visit www.leedssexualhealth.com for up to date opening times.  Thursdays 11.30am - 7pm",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Under 25s Drop In - The Market Place",
+         "toString": [
+            null
+         ]
+      },
+      "type": "generic",
+      "generalPublic": "false",
+      "u25": "true",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthservicesforyoungpeople/18914402",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T09:10:46Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Under 25s Drop In - The Market Place",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthservicesforyoungpeople/18914402?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Under 25s Drop In - The Market Place",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569032"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fsexualhealthservicesforyoungpeople%2f18914402&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthservicesforyoungpeople/18914402",
+         "title": {
+            "_type": "text",
+            "__text": "Under 25s Drop In - The Market Place",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T09:10:46Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Under 25s Drop In - The Market Place",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthservicesforyoungpeople/18914402?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Under 25s Drop In - The Market Place",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569032"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "U",
+                  "__text": "Under 25s Drop In - The Market Place",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "S",
+                  "__text": "Sexual health services for young people",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.themarketplaceleeds.org.uk/",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "18a New Market Street",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS1 6DG",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0113 246 1659",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "email": {
+                     "__text": "youthwork@themarketplaceleeds.org.uk",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.540851116",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.79646",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "The Drop-In is open to all young people 13-25 years old and offers C-Card, free chlamydia and gonorrhoea testing and free pregnancy testing. Can offer support which is informal, non-judgemental and confidential on any issues that you want to bring. Also have lots of information about all sorts of things which affect young people.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "General notes",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "You could also drop in to your local GP if you want to talk to someone face to face. Many GP surgeries have a specialist nurse who would welcome you with any health issues you may have. All of the staff are &apos;young people friendly&apos; and you can get C-card, STI screening, pregnancy testing and support or information. Just call your GP Practice and ask to see your Young People Friendly Nurse.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Drop-in: Wednesday 2.30pm - 5.30pm Thursday 2.30pm - 5.30pm Friday 2.30pm - 5.30pm Saturday 2pm - 4pm",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+},
+
+{
+   "feed": {
+      "title": {
+         "_type": "text",
+         "__text": "NHS Choices - Marie Stopes UK - Leeds North",
+         "toString": [
+            null
+         ]
+      },
+
+      "type": "generic",
+      "generalPublic": "free",
+      "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18907946",
+      "rights": {
+         "_type": "text",
+         "__text": "© Crown Copyright 2009",
+         "toString": [
+            null
+         ]
+      },
+      "updated": "2017-12-19T10:08:06Z",
+      "category": {
+         "_term": "Service"
+      },
+      "logo": "http://www.nhs.uk/nhscwebservices/documents/logo1.jpg",
+      "author": {
+         "name": "NHS Choices",
+         "uri": "http://www.nhs.uk",
+         "email": "webservices@nhschoices.nhs.uk"
+      },
+      "link": [
+         {
+            "_rel": "self",
+            "_type": "application/atom+xml",
+            "_title": "NHS Choices - Marie Stopes UK - Leeds North",
+            "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18907946?apikey=bbccdd"
+         },
+         {
+            "_rel": "alternate",
+            "_title": "NHS Choices - Marie Stopes UK - Leeds North",
+            "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569225"
+         }
+      ],
+      "tracking": {
+         "_xmlns": "http://syndication.nhschoices.nhs.uk/services",
+         "__text": "<img style=\"border: 0; width: 1px; height: 1px;\" alt=\"\" src=\"http://statse.webtrendslive.com/dcss9yzisf9xjyg74mgbihg8p_8d2u/njs.gif?dcsuri=/services%2ftypes%2fsexualhealthinformationandsupport%2f18907946&amp;wt.js=no&amp;wt.cg_n=syndication\"/>",
+         "toString": [
+            null
+         ]
+      },
+      "complete": {
+         "_xmlns": "http://purl.org/syndication/history/1.0"
+      },
+      "entry": {
+         "id": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18907946",
+         "title": {
+            "_type": "text",
+            "__text": "Marie Stopes UK - Leeds North",
+            "toString": [
+               null
+            ]
+         },
+         "updated": "2017-12-19T10:08:06Z",
+         "link": [
+            {
+               "_rel": "self",
+               "_title": "Marie Stopes UK - Leeds North",
+               "_href": "http://v1.syndication.nhschoices.nhs.uk/services/types/sexualhealthinformationandsupport/18907946?apikey=bbccdd"
+            },
+            {
+               "_rel": "alternate",
+               "_title": "Marie Stopes UK - Leeds North",
+               "_href": "http://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx?id=8569225"
+            }
+         ],
+         "content": {
+            "service": {
+               "name": {
+                  "_firstLetter": "M",
+                  "__text": "Marie Stopes UK - Leeds North",
+                  "toString": [
+                     null
+                  ]
+               },
+               "type": {
+                  "_firstLetter": "S",
+                  "__text": "Sexual health information and support",
+                  "toString": [
+                     null
+                  ]
+               },
+               "summaryText": {},
+               "WebAddress": {
+                  "__text": "http://www.mariestopes.org.uk/clinic/marie-stopes-leeds-centre-north",
+                  "toString": [
+                     null
+                  ]
+               },
+               "address": {
+                  "addressLine": [
+                     {
+                        "__text": "45 Barrack Road",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "Leeds",
+                        "toString": [
+                           null
+                        ]
+                     },
+                     {
+                        "__text": "West Yorkshire",
+                        "toString": [
+                           null
+                        ]
+                     }
+                  ],
+                  "postcode": {
+                     "__text": "LS7 4AB",
+                     "toString": [
+                        null
+                     ]
+                  }
+               },
+               "contact": {
+                  "telephone": {
+                     "__text": "0345 300 8090",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "email": {
+                     "__text": "services@mariestopes.org.uk",
+                     "toString": [
+                        null
+                     ]
+                  },
+                  "_type": "General"
+               },
+               "longitude": {
+                  "__text": "-1.529801965",
+                  "toString": [
+                     null
+                  ]
+               },
+               "latitude": {
+                  "__text": "53.81114",
+                  "toString": [
+                     null
+                  ]
+               },
+               "thingsShouldKnow": {},
+               "SuppliedBy": {
+                  "__text": "Serco Global Services",
+                  "toString": [
+                     null
+                  ]
+               },
+               "SuppliedOn": {
+                  "__text": "2017-12-08 00:00:00Z",
+                  "toString": [
+                     null
+                  ]
+               },
+               "nonCoreElements": {
+                  "nonCoreElement": [
+                     {
+                        "elementTitle": {
+                           "__text": "Service details",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Marie Stopes UK offers information and advice about abortion and carries out free and paid for medical procedures. This centre offers:   • contraception  • emergency contraception  • pregnancy testing  • unplanned pregnancy consultations  • early medical abortion  • surgical abortion  • vasectomy  • chlamydia testing",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "General notes",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Most of our services are funded by the NHS, at no cost to NHS patients. To find out more, call us on 0345 300 8090. Alternatively, please email us at services@mariestopes.org.uk",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     },
+                     {
+                        "elementTitle": {
+                           "__text": "Opening times",
+                           "toString": [
+                              null
+                           ]
+                        },
+                        "elementText": {
+                           "__text": "Tuesday 8.30am - 4.30pm Friday 8.30am - 4.30pm  For more information and to book your appointment, call us anytime on 0345 300 3740 (24hrs a day, 7 days a week). Please note opening hours are subject to change.",
+                           "toString": [
+                              null
+                           ]
+                        }
+                     }
+                  ]
+               },
+               "_xmlns:s": "http://syndication.nhschoices.nhs.uk/services"
+            },
+            "_type": "application/xml"
+         }
+      },
+      "_xmlns": "http://www.w3.org/2005/Atom"
+   }
+}]
