@@ -15,6 +15,12 @@ const bodyParser = require('body-parser')
 // const http = require('http')
 const chalk = require('chalk')
 const favicon = require('serve-favicon')
+const helmet = require('helmet')
+const getServices = require('./app/middleware/getServices')
+const loadData = require('./config/loadData')
+const validator = require('express-validator')
+
+loadData()
 
 /**
  * Config
@@ -67,6 +73,12 @@ app.set('views', path.join(__dirname, 'app', 'views'))
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 app.use(logger('dev'))
+app.port = process.env.PORT || 3000
+
+app.use(helmet())
+app.use(validator())
+app.use('/nearby', getServices);
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
