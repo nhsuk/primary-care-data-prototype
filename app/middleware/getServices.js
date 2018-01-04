@@ -2,6 +2,7 @@ const services = require('../lib/getServices');
 const cache = require('memory-cache');
 const log = require('../lib/logger');
 
+
 function getServices(req, res, next) {
   // req.checkQuery('latitude', 'latitude is required').notEmpty();
   // req.checkQuery('longitude', 'longitude is required').notEmpty();
@@ -43,9 +44,50 @@ function getServices(req, res, next) {
   }
 }
 
-function mapResults(results, res, search) {
-  res.locals.services = results.map((result) => {
-    const newService = result.feed.entry;
+function mapResults(results, res) {
+  var uniqueUrls = [];
+  var pharmacies = [];
+  var SHProviders = [];
+  var onlineProviders = [];
+
+  const symptomFilter = res.locals.hasSymptoms;
+  const locationFilter = res.locals.multiChoose;
+  const ageFilter = res.locals.age;
+
+  results.forEach((result) => {
+
+    var newService = result.feed.entry;
+
+    if (ageFilter >= 25) {
+      if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
+        return;
+      }
+    }
+
+    if (symptomFilter === 'yes') {
+      if (result.feed.type === 'pharmacy') {
+        return;
+      }
+      if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+        return;
+      }
+    } else {
+      if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
+        return;
+      }
+
+      if (!locationFilter.includes('pharmacy') && (result.feed.type === 'pharmacy')){
+        return;
+      }
+
+      if (!locationFilter.includes('location') &&
+          ((result.feed.type === 'pharmacy') ||
+            ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+          )){
+        return;
+      }
+    }
+    log.info(newService);
     if (newService) {
       newService.distance = result.distanceInMiles.toFixed(2);
       // eslint-disable-next-line no-underscore-dangle
@@ -58,13 +100,31 @@ function mapResults(results, res, search) {
       if (newService.link) {
         // eslint-disable-next-line no-underscore-dangle
         newService.url = newService.link[1]._href;
+        if (uniqueUrls.includes(newService.url)) {
+          newService = null;
+        } else {
+          uniqueUrls.push(newService.url);
+        }
       }
     }
-
-    return newService;
+    if (newService) {
+      if (result.feed.type == 'pharmacy') {
+        pharmacies.push(newService);
+      } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+        onlineProviders.push(newService);
+      } else {
+        SHProviders.push(newService);
+      }
+    }
   });
-  // res.locals.resultsHeader = resultsFormat.pluraliseSurgeryQuestion(res.locals.services.length);
-  // res.locals.resultsSubHeader = resultsFormat.pluraliseSurgery(res.locals.services.length, search);
+
+  res.locals.pharmacies = pharmacies;
+  res.locals.onlineProviders = onlineProviders;
+  res.locals.SHProviders = SHProviders;
+
+  // log.info(pharmacies);
+  // log.info(onlineProviders);
+  // log.info(SHProviders);
 }
 
 module.exports = getServices;

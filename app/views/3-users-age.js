@@ -14,7 +14,7 @@ module.exports = function (input, req) {
         input.redirect = '/4-choices-u25';
       } else if (req.session.validated.hasSymptoms === 'yes') {
         req.session.validated = Object.assign({}, req.session.validated, {
-          multiChoose: 'choose-location'
+          multiChoose: 'location'
         });
         input.redirect = '/5-preferred-times';
       }
@@ -28,7 +28,7 @@ module.exports = function (input, req) {
         input.redirect = '/4-choices';
       } else if (req.session.validated.hasSymptoms === 'yes') {
         req.session.validated = Object.assign({}, req.session.validated, {
-          multiChoose: 'choose-location'
+          multiChoose: 'location'
         });
         input.redirect = '/5-preferred-times';
       }
