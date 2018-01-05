@@ -14,57 +14,68 @@ function preRender(req, res, next) {
   const hasSymptoms = res.locals.hasSymptoms;
   const age = res.locals.age;
   const multiChoose = res.locals.multiChoose;
+  var partials;
 
   if (hasSymptoms === 'yes') {
-    if (multiChoose.includes('choose-location')) {
+    if (multiChoose.includes('location')) {
       res.locals.locationHeading = 'Places you can see a sexual heath professional'
-      res.locals.partialHeading = [undefined];
+      res.locals.partialContexts = [ { partialHeading: false, SHProviders: res.locals.SHProviders } ];
       res.locals.partials = ['sexual-health-providers'];
     }
   } else if (hasSymptoms === 'no') {
     if (multiChoose.length == 3) {
-      if ((multiChoose.includes('choose-location')) && (multiChoose.includes('choose-pharmacy'))
-        && (multiChoose.includes('choose-online'))) {
+      if ((multiChoose.includes('location')) && (multiChoose.includes('pharmacy'))
+        && (multiChoose.includes('online'))) {
         if (parseInt(age) >= 25) {
-          res.locals.partialHeading = ['sexual-health-providers', 'pharmacies', 'online-providers'];
+          partials= ['sexual-health-providers', 'pharmacies', 'online-providers'];
+          res.locals.partialContexts = [ { partialHeading: true, SHProviders: res.locals.SHProviders }, {partialHeading: true, pharmacies: res.locals.pharmacies}, { partialHeading: true, onlineProviders: res.locals.onlineProviders} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
-          res.locals.partialHeading = ['pharmacies', 'online-providers', 'sexual-health-providers'];
+          partials = ['pharmacies', 'online-providers', 'sexual-health-providers'];
+          res.locals.partialContexts = [ {partialHeading: true, pharmacies: res.locals.pharmacies}, { partialHeading: true, onlineProviders: res.locals.onlineProviders}, { partialHeading: true, SHProviders: res.locals.SHProviders } ];
         }
         res.locals.locationHeading = 'Where you can get a test';
-        res.locals.partials = partialHeading;
+        res.locals.partials = partials;
       }
     } else if (multiChoose.length == 2) {
-      if ((multiChoose.includes('choose-location')) && (multiChoose.includes('choose-pharmacy'))) {
+      if ((multiChoose.includes('location')) && (multiChoose.includes('pharmacy'))) {
         if (parseInt(age) >= 25) {
-          res.locals.partialHeading = ['sexual-health-providers', 'online-providers'];
+          partials = ['sexual-health-providers', 'online-providers'];
+          res.locals.partialContexts = [ { partialHeading: true, SHProviders: res.locals.SHProviders }, { partialHeading: true, onlineProviders: res.locals.onlineProviders} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
-          res.locals.partialHeading = ['pharmacies', 'sexual-health-providers'];
+          partials = ['pharmacies', 'sexual-health-providers'];
+          res.locals.partialContexts = [ { partialHeading: true, pharmacies: res.locals.pharmacies}, { partialHeading: true, SHProviders: res.locals.SHProviders } ];
         }
       }
-      if ((multiChoose.includes('choose-online')) && (multiChoose.includes('choose-location'))) {
+      if ((multiChoose.includes('online')) && (multiChoose.includes('location'))) {
         if (parseInt(age) >= 25) {
-          res.locals.partialHeading = ['sexual-health-providers', 'online-providers'];
+          partials = ['sexual-health-providers', 'online-providers'];
+          res.locals.partialContexts = [ { partialHeading: true, SHProviders: res.locals.SHProviders }, { partialHeading: true, onlineProviders: res.locals.onlineProviders} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
-          res.locals.partialHeading = ['online-providers', 'sexual-health-providers'];
+          partials = ['online-providers', 'sexual-health-providers'];
+          res.locals.partialContexts = [ { partialHeading: true, onlineProviders: res.locals.onlineProviders}, { partialHeading: true, SHProviders: res.locals.SHProviders } ];
         }
       }
-      if ((multiChoose.includes('choose-online')) && (multiChoose.includes('choose-pharmacy'))) {
-        res.locals.partialHeading = ['pharmacies', 'online-providers'];
+      if ((multiChoose.includes('online')) && (multiChoose.includes('pharmacy'))) {
+        partials = ['pharmacies', 'online-providers'];
+        res.locals.partialContexts = [ {partialHeading: true, pharmacies: res.locals.pharmacies}, { partialHeading: true, onlineProviders: res.locals.onlineProviders} ];
       }
       res.locals.locationHeading = 'Where you can get a test';
-      res.locals.partials = partialHeading;
+      res.locals.partials = partials;
+
     } else {
-      if (multiChoose.includes('choose-location')) {
+      if (multiChoose.includes('location')) {
         res.locals.locationHeading = 'Places you can see a sexual heath professional'
         res.locals.partials = ['sexual-health-providers'];
-      } else if (multiChoose.includes('choose-pharmacy')) {
+        res.locals.partialContexts = [ { partialHeading: false, SHProviders: res.locals.SHProviders } ];
+      } else if (multiChoose.includes('pharmacy')) {
         res.locals.locationHeading = 'Pharmacies where you can buy a self-test kit'
         res.locals.partials = ['pharmacies'];
-      } else if (multiChoose.includes('choose-online')) {
+        res.locals.partialContexts = [ { partialHeading: false, pharmacies: res.locals.pharmacies } ];
+      } else if (multiChoose.includes('online')) {
         res.locals.locationHeading = 'Where to order a self-test kit online'
         res.locals.partials = ['online-providers'];
+        res.locals.partialContexts = [ { partialHeading: false, onlineProviders: res.locals.onlineProviders } ];
       }
-      res.locals.partialHeading = [undefined];
     }
   }
 

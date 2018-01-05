@@ -7,9 +7,9 @@ module.exports = function (input, req) {
   }
 
   input.multiChoose = req.session.validated.multiChoose;
-  if ((input.multiChoose.includes('choose-location')) && (input.multiChoose.includes('choose-pharmacy'))) {
+  if ((input.multiChoose.includes('location')) && (input.multiChoose.includes('pharmacy'))) {
     input.locationHeading = 'Where do you want to get a test?'
-  } else if (input.multiChoose.includes('choose-location')) {
+  } else if (input.multiChoose.includes('location')) {
     input.locationHeading = 'Where do you want to find a sexual health professional?'
   } else {
     input.locationHeading = 'Where do you want to get a self-test kit from?'

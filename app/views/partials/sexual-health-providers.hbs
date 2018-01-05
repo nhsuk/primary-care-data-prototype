@@ -1,19 +1,7 @@
-{{#if this}}
+{{#if this.partialHeading}}
  <h2 style="font-size: 26px; line-height: 30px; margin-bottom: 32px;">Places you can see someone</h2>
 {{/if}}
 
-<!--<a href="https://www.nhs.uk/Services/clinics/Overview/DefaultView.aspx?id=2357"><span style="font-size: 22px; font-weight: 600; ">Marie Stopes</span></a><br />-->
-<!--<span style="font-size: 16px;">0.1 miles away</span><br />-->
-<!--5 Wynnstay Grove, Manchester M14 6XG <br />-->
-<!--Telephone: 0345 300 8090-->
-<!--<br /><br />-->
-<!--<a href="https://www.nhs.uk/Services/hospitals/Overview/DefaultView.aspx?id=134557"><span style="font-size: 22px; font-weight: 600; ">Manchester Royal Infirmary</span></a><br />-->
-<!--<span style="font-size: 16px;">0.5 miles away</span><br />-->
-<!--Oxford Rd, Manchester M13 9WL<br />-->
-<!--Telephone: 0161 276 1234-->
-<!--<br /><br />-->
-<!--<a href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id=36907"><span style="font-size: 22px; font-weight: 600; ">The Arch Medical Practice</span></a><br />-->
-<!--<span style="font-size: 16px;">1.7 miles away</span><br />-->
-<!--175 Royce Rd, Manchester M15 5TJ<br />-->
-<!--Telephone: 0161 226 0606-->
-<!--<br /><br />-->
+{{#each this.SHProviders}}
+    {{> service service=this}}
+{{/each}}

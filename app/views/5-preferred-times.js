@@ -4,9 +4,9 @@
        time: input.preferredTimes
      })
      input.multiChoose = req.session.validated.multiChoose
-     if (((input.multiChoose.includes('choose-location')) || (input.multiChoose.includes('choose-pharmacy'))) && (input.multiChoose.includes('choose-online'))) {
+     if (((input.multiChoose.includes('location')) || (input.multiChoose.includes('pharmacy'))) && (input.multiChoose.includes('online'))) {
        input.redirect = '/6-location-all3'
-     } else if ((input.multiChoose.includes('choose-location')) || (input.multiChoose.includes('choose-pharmacy'))) {
+     } else if ((input.multiChoose.includes('location')) || (input.multiChoose.includes('pharmacy'))) {
        input.redirect = '/6-location'
      } else {
        input.redirect = '/6-location-online'

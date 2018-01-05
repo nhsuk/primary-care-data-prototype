@@ -1,13 +1,6 @@
 <h2>{{ locationHeading }}</h2>
 <br />
-{{#each services}}
-    <a href="{{ this.url }}"><span style="font-size: 22px; font-weight: 600; ">{{ this.name }}</span></a><br />
-    <span style="font-size: 16px;">{{ this.distance }} miles away</span><br />
-    {{ this.address }}<br />
-    Telephone: {{ this.tel }}
-    <br /><br />
-{{/each}}
 
 {{#partials}}
-    {{> (lookup ../partials @index) (lookup ../partialHeading @index) }}
+    {{> (lookup ../partials @index) (lookup ../partialContexts @index) }}
 {{/partials}}

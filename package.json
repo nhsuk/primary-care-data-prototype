@@ -33,7 +33,7 @@
     ]
   },
   "dependencies": {
-    "autoprefixer": "^7.2.1",
+    "autoprefixer": "^7.2.4",
     "basic-auth": "^1.1.0",
     "body-parser": "~1.17.1",
     "chalk": "^2.1.0",
@@ -52,27 +52,27 @@
     "geolib": "^2.0.24",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
-    "gulp-postcss": "^7.0.0",
+    "gulp-postcss": "^7.0.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.3",
     "helmet": "^3.9.0",
-    "marked": "^0.3.7",
+    "marked": "~0.3.9",
     "memory-cache": "^0.2.0",
     "morgan": "~1.8.1",
     "ngeohash": "^0.6.0",
-    "nhsuk-bunyan-logger": "^1.6.1",
+    "nhsuk-bunyan-logger": "^1.7.0",
     "per-env": "^1.0.2",
     "portscanner": "^2.1.1",
     "postcodesio-client": "^0.3.1",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",
-    "run-sequence": "^2.1.0",
+    "run-sequence": "^2.2.1",
     "serve-favicon": "~2.4.2",
     "standard": "^10.0.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "pa11y": "^5.0.0-beta.4",
+    "browser-sync": "^2.23.2",
+    "pa11y": "^5.0.0-beta.5",
     "pa11y-reporter-html": "^1.0.0"
   }
 }

@@ -2,7 +2,7 @@ const messages = require('../lib/messages');
 const log = require('../lib/logger');
 
 function results(req, res) {
-  if (res.locals.services.length > 0) {
+  if ((res.locals.pharmacies.length > 0) || (res.locals.onlineProviders.length > 0) || (res.locals.SHProviders.length > 0)) {
     res.render('7-results');
   } else {
     res.render('7-no-results');
@@ -10,7 +10,14 @@ function results(req, res) {
 }
 
 function searchForServices(req, res) {
-  res.render('6-location.hbs');
+  if (((res.locals.multiChoose.includes('location')) || (res.locals.multiChoose.includes('pharmacy'))) && (res.locals.multiChoose.includes('online'))) {
+    res.render('6-location-all3');
+  } else if ((res.locals.multiChoose.includes('location')) || (res.locals.multiChoose.includes('pharmacy'))) {
+    res.render('6-location');
+  } else {
+    res.render('6-location-online');
+  }
+
 }
 
 function postcodeError(error, postcode, res, next) {
