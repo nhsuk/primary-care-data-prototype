@@ -87,23 +87,28 @@ function mapResults(results, res) {
         return;
       }
     }
-    log.info(newService);
     if (newService) {
       newService.distance = result.distanceInMiles.toFixed(2);
       // eslint-disable-next-line no-underscore-dangle
       newService.name = newService.title.__text;
-      if (newService.content) {
-        // eslint-disable-next-line no-underscore-dangle
-        newService.tel = newService.content.service.contact.telephone.__text;
-        newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+      if ((newService.content) && (newService.content.service)) {
+        if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+          // eslint-disable-next-line no-underscore-dangle
+          newService.url = newService.content.service.WebAddress.__text;
+        } else {
+          // eslint-disable-next-line no-underscore-dangle
+          newService.tel = newService.content.service.contact.telephone.__text;
+          // eslint-disable-next-line no-underscore-dangle
+          newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+        }
       }
       if (newService.link) {
         // eslint-disable-next-line no-underscore-dangle
-        newService.url = newService.link[1]._href;
-        if (uniqueUrls.includes(newService.url)) {
+        newService.choicesUrl = newService.link[1]._href;
+        if (uniqueUrls.includes(newService.choicesUrl)) {
           newService = null;
         } else {
-          uniqueUrls.push(newService.url);
+          uniqueUrls.push(newService.choicesUrl);
         }
       }
     }
