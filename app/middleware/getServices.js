@@ -44,6 +44,96 @@ function getServices(req, res, next) {
   }
 }
 
+// hand-crafted json from syndication
+// function mapResults(results, res) {
+//   var uniqueUrls = [];
+//   var pharmacies = [];
+//   var SHProviders = [];
+//   var onlineProviders = [];
+//
+//   const symptomFilter = res.locals.hasSymptoms;
+//   const locationFilter = res.locals.multiChoose;
+//   const ageFilter = res.locals.age;
+//
+//   results.forEach((result) => {
+//
+//     var newService = result.feed.entry;
+//
+//     if (ageFilter >= 25) {
+//       if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
+//         return;
+//       }
+//     }
+//
+//     if (symptomFilter === 'yes') {
+//       if (result.feed.type === 'pharmacy') {
+//         return;
+//       }
+//       if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//         return;
+//       }
+//     } else {
+//       if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
+//         return;
+//       }
+//
+//       if (!locationFilter.includes('pharmacy') && (result.feed.type === 'pharmacy')){
+//         return;
+//       }
+//
+//       if (!locationFilter.includes('location') &&
+//           ((result.feed.type === 'pharmacy') ||
+//             ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+//           )){
+//         return;
+//       }
+//     }
+//     if (newService) {
+//       newService.distance = result.distanceInMiles.toFixed(2);
+//       // eslint-disable-next-line no-underscore-dangle
+//       newService.name = newService.title.__text;
+//       if ((newService.content) && (newService.content.service)) {
+//         if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.url = newService.content.service.WebAddress.__text;
+//         } else {
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.tel = newService.content.service.contact.telephone.__text;
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+//         }
+//       }
+//       if (newService.link) {
+//         // eslint-disable-next-line no-underscore-dangle
+//         newService.choicesUrl = newService.link[1]._href;
+//         if (uniqueUrls.includes(newService.choicesUrl)) {
+//           newService = null;
+//         } else {
+//           uniqueUrls.push(newService.choicesUrl);
+//         }
+//       }
+//     }
+//     if (newService) {
+//       if (result.feed.type == 'pharmacy') {
+//         pharmacies.push(newService);
+//       } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//         onlineProviders.push(newService);
+//       } else {
+//         SHProviders.push(newService);
+//       }
+//     }
+//   });
+//
+//   res.locals.pharmacies = pharmacies;
+//   res.locals.onlineProviders = onlineProviders;
+//   res.locals.SHProviders = SHProviders;
+//
+//   // log.info(pharmacies);
+//   // log.info(onlineProviders);
+//   // log.info(SHProviders);
+// }
+
+// json data from db
 function mapResults(results, res) {
   var uniqueUrls = [];
   var pharmacies = [];
@@ -55,73 +145,74 @@ function mapResults(results, res) {
   const ageFilter = res.locals.age;
 
   results.forEach((result) => {
+log.info(result);
+    var newService = result;
 
-    var newService = result.feed.entry;
+  // no data!!!
+  // if (ageFilter >= 25) {
+  //   if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
+  //     return;
+  //   }
+  // }
 
-    if (ageFilter >= 25) {
-      if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
-        return;
-      }
+  if (symptomFilter === 'yes') {
+    if (result.OrganisationTypeID === 'PHA') {
+      return;
+    }
+    // if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+    //   return;
+    // }
+  } else {
+    // if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
+    //   return;
+    // }
+
+    if (!locationFilter.includes('pharmacy') && (result.OrganisationTypeID === 'PHA')){
+      return;
     }
 
-    if (symptomFilter === 'yes') {
-      if (result.feed.type === 'pharmacy') {
-        return;
-      }
-      if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-        return;
-      }
+    if (!locationFilter.includes('location') &&
+      ((result.OrganisationTypeID === 'PHA') ||
+        true
+        // ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+      )){
+      return;
+    }
+  }
+  if (newService) {
+    newService.distance = result.distanceInMiles.toFixed(2);
+    newService.name = newService.OrganisationName;
+    // if ((newService.content) && (newService.content.service)) {
+    //   if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.url = newService.content.service.WebAddress.__text;
+    //   } else {
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.tel = newService.content.service.contact.telephone.__text;
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+    //   }
+    // }
+    // if (newService.link) {
+    //   // eslint-disable-next-line no-underscore-dangle
+    //   newService.choicesUrl = newService.link[1]._href;
+    //   if (uniqueUrls.includes(newService.choicesUrl)) {
+    //     newService = null;
+    //   } else {
+    //     uniqueUrls.push(newService.choicesUrl);
+    //   }
+    // }
+  }
+  if (newService) {
+    if (result.OrganisationName == 'PHA') {
+      pharmacies.push(newService);
+    } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+      onlineProviders.push(newService);
     } else {
-      if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
-        return;
-      }
-
-      if (!locationFilter.includes('pharmacy') && (result.feed.type === 'pharmacy')){
-        return;
-      }
-
-      if (!locationFilter.includes('location') &&
-          ((result.feed.type === 'pharmacy') ||
-            ((result.feed.online !== undefined) && (result.feed.online === 'true'))
-          )){
-        return;
-      }
+      SHProviders.push(newService);
     }
-    if (newService) {
-      newService.distance = result.distanceInMiles.toFixed(2);
-      // eslint-disable-next-line no-underscore-dangle
-      newService.name = newService.title.__text;
-      if ((newService.content) && (newService.content.service)) {
-        if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-          // eslint-disable-next-line no-underscore-dangle
-          newService.url = newService.content.service.WebAddress.__text;
-        } else {
-          // eslint-disable-next-line no-underscore-dangle
-          newService.tel = newService.content.service.contact.telephone.__text;
-          // eslint-disable-next-line no-underscore-dangle
-          newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
-        }
-      }
-      if (newService.link) {
-        // eslint-disable-next-line no-underscore-dangle
-        newService.choicesUrl = newService.link[1]._href;
-        if (uniqueUrls.includes(newService.choicesUrl)) {
-          newService = null;
-        } else {
-          uniqueUrls.push(newService.choicesUrl);
-        }
-      }
-    }
-    if (newService) {
-      if (result.feed.type == 'pharmacy') {
-        pharmacies.push(newService);
-      } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-        onlineProviders.push(newService);
-      } else {
-        SHProviders.push(newService);
-      }
-    }
-  });
+  }
+});
 
   res.locals.pharmacies = pharmacies;
   res.locals.onlineProviders = onlineProviders;
