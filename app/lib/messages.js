@@ -53,6 +53,7 @@ function technicalProblems() {
 
 module.exports = {
   noResults,
+  postcodeProximityMessage,
   outOfEngland,
   emptySearch,
   invalidPostcode,
