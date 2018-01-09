@@ -16,7 +16,7 @@ module.exports = function (input, req) {
         req.session.validated = Object.assign({}, req.session.validated, {
           multiChoose: 'location'
         });
-        input.redirect = '/5-preferred-times';
+        input.redirect = '/4a-selection';
       }
 
       break;
@@ -30,7 +30,7 @@ module.exports = function (input, req) {
         req.session.validated = Object.assign({}, req.session.validated, {
           multiChoose: 'location'
         });
-        input.redirect = '/5-preferred-times';
+        input.redirect = '/4a-selection';
       }
       break;
   }
