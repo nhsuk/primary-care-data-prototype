@@ -19,7 +19,7 @@ function preRender(req, res, next) {
 
   if (hasSymptoms === 'yes') {
     if (multiChoose.includes('location')) {
-      res.locals.locationHeading = `Places you can see a sexual heath professional${res.locals.proximity}`
+      res.locals.locationHeading = `Places you can see a sexual health professional${res.locals.proximity}`
       res.locals.partialContexts = [ { partialHeading: false, SHProviders: res.locals.SHProviders } ];
       res.locals.partials = ['sexual-health-providers'];
     }
@@ -65,7 +65,7 @@ function preRender(req, res, next) {
 
     } else {
       if (multiChoose.includes('location')) {
-        res.locals.locationHeading = `Places you can see a sexual heath professional${res.locals.proximity}`
+        res.locals.locationHeading = `Places you can see a sexual health professional${res.locals.proximity}`
         res.locals.partials = ['sexual-health-providers'];
         res.locals.partialContexts = [ { partialHeading: false, SHProviders: res.locals.SHProviders } ];
       } else if (multiChoose.includes('pharmacy')) {
