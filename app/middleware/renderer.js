@@ -3,6 +3,7 @@ const log = require('../lib/logger');
 
 function results(req, res) {
   if ((res.locals.pharmacies.length > 0) || (res.locals.onlineProviders.length > 0) || (res.locals.SHProviders.length > 0)) {
+    log.info(res.locals.partialContexts);
     res.render('7-results');
   } else {
     res.render('7-no-results');

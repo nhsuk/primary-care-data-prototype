@@ -6,12 +6,15 @@ const geohash = require('ngeohash');
 // hand-crafted json from syndication
 // const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/chlamydia_u25s_sti_gsds';
 
-// json data from db
-const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/sp_chlamydia_gsd_20171228162814';
+// json Sexual Health data from db
+const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/query_sexual_health_20180110162914.json';
+
+// json Chlamydia data from db
+// const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/query_Chlamydia_gsd_20180110121014';
 
 // eslint-disable-next-line import/no-dynamic-require
 const services = require(sexualHealthListPath);
-const postcodesDict = cache.get('postcodesDict');
+// const postcodesDict = cache.get('postcodesDict');
 var uniqueOrganisationNames = [];
 
 log.info(`Loaded data from ${sexualHealthListPath}`);
@@ -33,10 +36,13 @@ function loadData() {
           } else {
             uniqueOrganisationNames.push(item.OrganisationName);
             /* eslint-disable no-param-reassign */
-            item.latitude = postcodesDict[item.Postcode].latitude;
-            item.longitude = postcodesDict[item.Postcode].longitude;
+            // item.latitude = postcodesDict[item.Postcode].latitude;
+            // item.longitude = postcodesDict[item.Postcode].longitude;
+            item.latitude = item.Latitude;
+            item.longitude = item.Longitude;
             item.g = geohash.encode_int(item.latitude, item.longitude);
             /* eslint-enable no-param-reassign */
+            return true;
           }
       }
     log.warn(`No location found for: ${item.identifier}`);
@@ -47,8 +53,7 @@ function loadData() {
 
   cache.put('geo', geo);
   cache.put('services', services);
-  log.info(services);
-  log.info(`${services.length} services available for searching`);
+  log.info(`${mappedOrgs.length} services available for searching`);
 }
 
 module.exports = loadData;

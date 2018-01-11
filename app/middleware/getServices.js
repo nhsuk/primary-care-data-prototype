@@ -19,7 +19,7 @@ function getServices(req, res, next) {
   } else {
     const latitude = res.locals.postcodeLocationDetails.location.lat; // res.query.latitude;
     const longitude = res.locals.postcodeLocationDetails.location.lon; // res.query.longitude;
-    const nearby = req.query['limits:results:nearby'] || 10;
+    const nearby = req.query['limits:results:nearby'] || 123;
     // const open = req.query['limits:results:open'] || 1;
     // Given how search performance is impacted by the radius of the search
     // it has intentionaly not been allowed to be specificed by the client
@@ -135,7 +135,8 @@ function getServices(req, res, next) {
 
 // json data from db
 function mapResults(results, res) {
-  var uniqueUrls = [];
+  // var uniqueUrls = [];
+  var uniqueDistances = [];
   var pharmacies = [];
   var SHProviders = [];
   var onlineProviders = [];
@@ -144,8 +145,13 @@ function mapResults(results, res) {
   const locationFilter = res.locals.multiChoose;
   const ageFilter = res.locals.age;
 
+  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1'];
+  const u25Variances = ['3 in 1', 'Young People Friendly Practice'];
+
+  log.info("results");
+  log.info("locationFilter"+ locationFilter);
+
   results.forEach((result) => {
-log.info(result);
     var newService = result;
 
   // no data!!!
@@ -154,6 +160,12 @@ log.info(result);
   //     return;
   //   }
   // }
+
+  if (ageFilter >= 25) {
+    if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
+      return;
+    }
+  }
 
   if (symptomFilter === 'yes') {
     if (result.OrganisationTypeID === 'PHA') {
@@ -167,21 +179,27 @@ log.info(result);
     //   return;
     // }
 
-    if (!locationFilter.includes('pharmacy') && (result.OrganisationTypeID === 'PHA')){
+    if (!locationFilter.includes('pharmacy') &&
+      ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName)))) {
       return;
     }
 
-    if (!locationFilter.includes('location') &&
-      ((result.OrganisationTypeID === 'PHA') ||
-        true
-        // ((result.feed.online !== undefined) && (result.feed.online === 'true'))
-      )){
-      return;
-    }
+    // if (!locationFilter.includes('location') &&
+    //   ((result.OrganisationTypeID === 'PHA') ||
+    //     true
+    //     // ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+    //   )){
+    //   return;
+    // }
   }
   if (newService) {
-    newService.distance = result.distanceInMiles.toFixed(2);
     newService.name = newService.OrganisationName;
+    newService.distance = result.distanceInMiles.toFixed(2);
+    if (uniqueDistances.includes(newService.distance)) {
+      newService = null;
+    } else {
+      uniqueDistances.push(newService.distance);
+    }
     // if ((newService.content) && (newService.content.service)) {
     //   if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
     //     // eslint-disable-next-line no-underscore-dangle
@@ -203,10 +221,12 @@ log.info(result);
     //   }
     // }
   }
+
+
   if (newService) {
-    if (result.OrganisationName == 'PHA') {
+    if ((result.OrganisationTypeID == 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
       pharmacies.push(newService);
-    } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+    } else if ((result.feed !== undefined) && (result.feed.online !== undefined) && (result.feed.online === 'true')) {
       onlineProviders.push(newService);
     } else {
       SHProviders.push(newService);
@@ -214,13 +234,13 @@ log.info(result);
   }
 });
 
-  res.locals.pharmacies = pharmacies;
-  res.locals.onlineProviders = onlineProviders;
-  res.locals.SHProviders = SHProviders;
+  res.locals.pharmacies = pharmacies//.slice(0, 5);
+  res.locals.onlineProviders = onlineProviders//.slice(0, 5);
+  res.locals.SHProviders = SHProviders//.slice(0, 5);
 
-  // log.info(pharmacies);
-  // log.info(onlineProviders);
-  // log.info(SHProviders);
+  log.info(pharmacies.length);
+  log.info(onlineProviders.length);
+  log.info(SHProviders.length);
 }
 
 module.exports = getServices;
