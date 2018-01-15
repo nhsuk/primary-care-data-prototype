@@ -135,21 +135,22 @@ function getServices(req, res, next) {
 
 // json data from db
 function mapResults(results, res) {
-  // var uniqueUrls = [];
+  var uniqueURLs = [];
   var uniqueDistances = [];
   var pharmacies = [];
   var SHProviders = [];
   var onlineProviders = [];
+  var baseURL;
 
   const symptomFilter = res.locals.hasSymptoms;
   const locationFilter = res.locals.multiChoose;
   const ageFilter = res.locals.age;
 
-  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1'];
-  const u25Variances = ['3 in 1', 'Young People Friendly Practice'];
+  const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice'];
+  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
+  const u25Variances = ['3 in 1', 'Young People Friendly Practice', 'Under 25s Drop In'];
 
   log.info("results");
-  log.info("locationFilter"+ locationFilter);
 
   results.forEach((result) => {
     var newService = result;
@@ -160,6 +161,10 @@ function mapResults(results, res) {
   //     return;
   //   }
   // }
+
+  if (new RegExp(unavailableServices.join("|"), 'i').test(result.OrganisationName)) {
+    return;
+  }
 
   if (ageFilter >= 25) {
     if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
@@ -194,12 +199,19 @@ function mapResults(results, res) {
   }
   if (newService) {
     newService.name = newService.OrganisationName;
-    newService.distance = result.distanceInMiles.toFixed(2);
+    newService.distance = result.distanceInMiles.toFixed(1);
+    newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
+    `${(newService.Address2) ? newService.Address2 + ',' : '' } ` +
+    `${(newService.Address3) ? newService.Address3 + ',' : '' } ` +
+    `${newService.Postcode}`;
+
     if (uniqueDistances.includes(newService.distance)) {
       newService = null;
     } else {
       uniqueDistances.push(newService.distance);
     }
+
+
     // if ((newService.content) && (newService.content.service)) {
     //   if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
     //     // eslint-disable-next-line no-underscore-dangle
@@ -211,15 +223,25 @@ function mapResults(results, res) {
     //     newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
     //   }
     // }
-    // if (newService.link) {
-    //   // eslint-disable-next-line no-underscore-dangle
-    //   newService.choicesUrl = newService.link[1]._href;
-    //   if (uniqueUrls.includes(newService.choicesUrl)) {
-    //     newService = null;
-    //   } else {
-    //     uniqueUrls.push(newService.choicesUrl);
-    //   }
-    // }
+    if ((newService) && (newService.OrganisationID)) {
+      switch (newService.OrganisationTypeID) {
+        case 'CLI':
+          baseURL = "https://www.nhs.uk/Services/clinics/Overview/DefaultView.aspx?";
+          break;
+        case 'PHA':
+          baseURL = "https://www.nhs.uk/Services/pharmacies/Overview/DefaultView.aspx";
+          break;
+        default:
+          baseURL = "https://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx";
+      }
+      // eslint-disable-next-line no-underscore-dangle
+      newService.choicesUrl = `${baseURL}?id=${newService.OrganisationID}`;
+      if (uniqueURLs.includes(newService.choicesUrl)) {
+        newService = null;
+      } else {
+        uniqueURLs.push(newService.choicesUrl);
+      }
+    }
   }
 
 
@@ -234,9 +256,9 @@ function mapResults(results, res) {
   }
 });
 
-  res.locals.pharmacies = pharmacies//.slice(0, 5);
-  res.locals.onlineProviders = onlineProviders//.slice(0, 5);
-  res.locals.SHProviders = SHProviders//.slice(0, 5);
+  res.locals.pharmacies = pharmacies.slice(0, 5);
+  res.locals.onlineProviders = onlineProviders.slice(0, 5);
+  res.locals.SHProviders = SHProviders.slice(0, 5);
 
   log.info(pharmacies.length);
   log.info(onlineProviders.length);

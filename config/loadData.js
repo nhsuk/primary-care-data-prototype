@@ -7,7 +7,7 @@ const geohash = require('ngeohash');
 // const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/chlamydia_u25s_sti_gsds';
 
 // json Sexual Health data from db
-const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/query_sexual_health_20180110162914.json';
+const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/query_sexual_health_20180115114514';
 
 // json Chlamydia data from db
 // const sexualHealthListPath = process.env.SEXUAL_HEALTH_PATH || '../data/query_Chlamydia_gsd_20180110121014';
