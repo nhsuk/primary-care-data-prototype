@@ -29,10 +29,10 @@
   }
   if ((input.multiChoose.includes('pharmacy')) && (input.multiChoose.includes('online'))) {
     if (input.age >= 25) {
-      input.locationTimeHeading = 'When can you go to a pharmacy?'
+      input.locationTimeHeading = 'When can you go a pharmacy?'
       input.locationTimePara = "We'll show you pharmacies that are open during the times you choose."
     } else {
-      input.locationTimeHeading = 'When can you go to a pharmacy or other facility?'
+      input.locationTimeHeading = 'When can you go to?'
       input.locationTimePara = "We'll show you places that are open during the times you choose."
     }
     return input
@@ -52,7 +52,7 @@
       input.locationTimeHeading = 'When can you go to a pharmacy?'
       input.locationTimePara = "We'll show you pharmacies that are open during the times you choose."
     } else {
-      input.locationTimeHeading = 'When can you go to a pharmacy or other facility?'
+      input.locationTimeHeading = 'When can you go?'
       input.locationTimePara = "We'll show you places that are open during the times you choose."
     }
 

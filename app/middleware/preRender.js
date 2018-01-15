@@ -28,14 +28,14 @@ function preRender(req, res, next) {
       if ((multiChoose.includes('location')) && (multiChoose.includes('pharmacy')) && (multiChoose.includes('online'))) {
         if (parseInt(age) >= 25) {
           partials = ['sexual-health-providers', 'pharmacies', 'online-providers'];
-          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders },
+          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders },
             { partialHeadingExists: true, partialHeading: 'Pharmacies where you can buy a self-test kit', pharmacies: res.locals.pharmacies },
             { partialHeadingExists: true, partialHeading: 'Where to buy a self-test kit online', onlineProviders: res.locals.onlineProviders } ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
           partials = ['pharmacies', 'online-providers', 'sexual-health-providers'];
           res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places where you can pick up a self-test kit', pharmacies: res.locals.pharmacies },
             { partialHeadingExists: true, partialHeading: 'Where to order a self-test kit online', onlineProviders: res.locals.onlineProviders },
-            { partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders } ];
+            { partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders } ];
         }
         res.locals.locationHeading = `Where you can get a test${res.locals.proximity}`;
         res.locals.partials = partials;
@@ -44,23 +44,23 @@ function preRender(req, res, next) {
       if ((multiChoose.includes('location')) && (multiChoose.includes('pharmacy'))) {
         if (parseInt(age) >= 25) {
           partials = ['sexual-health-providers', 'pharmacies'];
-          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders },
+          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders },
             { partialHeadingExists: true, partialHeading: 'Pharmacies where you can buy a self-test kit', pharmacies: res.locals.pharmacies} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
           partials = ['pharmacies', 'sexual-health-providers'];
           res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places where you can pick up a self-test kit', pharmacies: res.locals.pharmacies}, {
-            partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders } ];
+            partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders } ];
         }
       }
       if ((multiChoose.includes('online')) && (multiChoose.includes('location'))) {
         if (parseInt(age) >= 25) {
           partials = ['sexual-health-providers', 'online-providers'];
-          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders },
+          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders },
             { partialHeadingExists: true, partialHeading: 'Where to buy a self-test kit online', onlineProviders: res.locals.onlineProviders} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
           partials = ['online-providers', 'sexual-health-providers'];
           res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Where to order a self-test kit online', onlineProviders: res.locals.onlineProviders},
-            { partialHeadingExists: true, partialHeading: 'Places you can see a someone', SHProviders: res.locals.SHProviders } ];
+            { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders } ];
         }
       }
       if ((multiChoose.includes('online')) && (multiChoose.includes('pharmacy'))) {
