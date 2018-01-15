@@ -19,7 +19,7 @@ function getServices(req, res, next) {
   } else {
     const latitude = res.locals.postcodeLocationDetails.location.lat; // res.query.latitude;
     const longitude = res.locals.postcodeLocationDetails.location.lon; // res.query.longitude;
-    const nearby = req.query['limits:results:nearby'] || 10;
+    const nearby = req.query['limits:results:nearby'] || 123;
     // const open = req.query['limits:results:open'] || 1;
     // Given how search performance is impacted by the radius of the search
     // it has intentionaly not been allowed to be specificed by the client
@@ -44,92 +44,225 @@ function getServices(req, res, next) {
   }
 }
 
+// hand-crafted json from syndication
+// function mapResults(results, res) {
+//   var uniqueUrls = [];
+//   var pharmacies = [];
+//   var SHProviders = [];
+//   var onlineProviders = [];
+//
+//   const symptomFilter = res.locals.hasSymptoms;
+//   const locationFilter = res.locals.multiChoose;
+//   const ageFilter = res.locals.age;
+//
+//   results.forEach((result) => {
+//
+//     var newService = result.feed.entry;
+//
+//     if (ageFilter >= 25) {
+//       if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
+//         return;
+//       }
+//     }
+//
+//     if (symptomFilter === 'yes') {
+//       if (result.feed.type === 'pharmacy') {
+//         return;
+//       }
+//       if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//         return;
+//       }
+//     } else {
+//       if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
+//         return;
+//       }
+//
+//       if (!locationFilter.includes('pharmacy') && (result.feed.type === 'pharmacy')){
+//         return;
+//       }
+//
+//       if (!locationFilter.includes('location') &&
+//           ((result.feed.type === 'pharmacy') ||
+//             ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+//           )){
+//         return;
+//       }
+//     }
+//     if (newService) {
+//       newService.distance = result.distanceInMiles.toFixed(2);
+//       // eslint-disable-next-line no-underscore-dangle
+//       newService.name = newService.title.__text;
+//       if ((newService.content) && (newService.content.service)) {
+//         if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.url = newService.content.service.WebAddress.__text;
+//         } else {
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.tel = newService.content.service.contact.telephone.__text;
+//           // eslint-disable-next-line no-underscore-dangle
+//           newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+//         }
+//       }
+//       if (newService.link) {
+//         // eslint-disable-next-line no-underscore-dangle
+//         newService.choicesUrl = newService.link[1]._href;
+//         if (uniqueUrls.includes(newService.choicesUrl)) {
+//           newService = null;
+//         } else {
+//           uniqueUrls.push(newService.choicesUrl);
+//         }
+//       }
+//     }
+//     if (newService) {
+//       if (result.feed.type == 'pharmacy') {
+//         pharmacies.push(newService);
+//       } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+//         onlineProviders.push(newService);
+//       } else {
+//         SHProviders.push(newService);
+//       }
+//     }
+//   });
+//
+//   res.locals.pharmacies = pharmacies;
+//   res.locals.onlineProviders = onlineProviders;
+//   res.locals.SHProviders = SHProviders;
+//
+//   // log.info(pharmacies);
+//   // log.info(onlineProviders);
+//   // log.info(SHProviders);
+// }
+
+// json data from db
 function mapResults(results, res) {
-  var uniqueUrls = [];
+  var uniqueURLs = [];
+  var uniqueDistances = [];
   var pharmacies = [];
   var SHProviders = [];
   var onlineProviders = [];
+  var baseURL;
 
   const symptomFilter = res.locals.hasSymptoms;
   const locationFilter = res.locals.multiChoose;
   const ageFilter = res.locals.age;
 
+  const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice'];
+  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
+  const u25Variances = ['3 in 1', 'Young People Friendly Practice', 'Under 25s Drop In'];
+
+  log.info("results");
+
   results.forEach((result) => {
+    var newService = result;
 
-    var newService = result.feed.entry;
+  // no data!!!
+  // if (ageFilter >= 25) {
+  //   if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
+  //     return;
+  //   }
+  // }
 
-    if (ageFilter >= 25) {
-      if ((result.feed.u25 !== undefined) && (result.feed.u25 === 'true') && (result.feed.generalPublic === 'false')) {
-        return;
-      }
+  if (new RegExp(unavailableServices.join("|"), 'i').test(result.OrganisationName)) {
+    return;
+  }
+
+  if (ageFilter >= 25) {
+    if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
+      return;
+    }
+  }
+
+  if (symptomFilter === 'yes') {
+    if (result.OrganisationTypeID === 'PHA') {
+      return;
+    }
+    // if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+    //   return;
+    // }
+  } else {
+    // if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
+    //   return;
+    // }
+
+    if (!locationFilter.includes('pharmacy') &&
+      ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName)))) {
+      return;
     }
 
-    if (symptomFilter === 'yes') {
-      if (result.feed.type === 'pharmacy') {
-        return;
-      }
-      if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-        return;
-      }
+    // if (!locationFilter.includes('location') &&
+    //   ((result.OrganisationTypeID === 'PHA') ||
+    //     true
+    //     // ((result.feed.online !== undefined) && (result.feed.online === 'true'))
+    //   )){
+    //   return;
+    // }
+  }
+  if (newService) {
+    newService.name = newService.OrganisationName;
+    newService.distance = result.distanceInMiles.toFixed(1);
+    newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
+    `${(newService.Address2) ? newService.Address2 + ',' : '' } ` +
+    `${(newService.Address3) ? newService.Address3 + ',' : '' } ` +
+    `${newService.Postcode}`;
+
+    if (uniqueDistances.includes(newService.distance)) {
+      newService = null;
     } else {
-      if ((result.feed.online !== undefined) && (result.feed.online === 'true') && !locationFilter.includes('online')) {
-        return;
-      }
-
-      if (!locationFilter.includes('pharmacy') && (result.feed.type === 'pharmacy')){
-        return;
-      }
-
-      if (!locationFilter.includes('location') &&
-          ((result.feed.type === 'pharmacy') ||
-            ((result.feed.online !== undefined) && (result.feed.online === 'true'))
-          )){
-        return;
-      }
+      uniqueDistances.push(newService.distance);
     }
-    if (newService) {
-      newService.distance = result.distanceInMiles.toFixed(2);
+
+
+    // if ((newService.content) && (newService.content.service)) {
+    //   if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.url = newService.content.service.WebAddress.__text;
+    //   } else {
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.tel = newService.content.service.contact.telephone.__text;
+    //     // eslint-disable-next-line no-underscore-dangle
+    //     newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
+    //   }
+    // }
+    if ((newService) && (newService.OrganisationID)) {
+      switch (newService.OrganisationTypeID) {
+        case 'CLI':
+          baseURL = "https://www.nhs.uk/Services/clinics/Overview/DefaultView.aspx?";
+          break;
+        case 'PHA':
+          baseURL = "https://www.nhs.uk/Services/pharmacies/Overview/DefaultView.aspx";
+          break;
+        default:
+          baseURL = "https://www.nhs.uk/ServiceDirectories/Pages/GenericServiceDetails.aspx";
+      }
       // eslint-disable-next-line no-underscore-dangle
-      newService.name = newService.title.__text;
-      if ((newService.content) && (newService.content.service)) {
-        if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-          // eslint-disable-next-line no-underscore-dangle
-          newService.url = newService.content.service.WebAddress.__text;
-        } else {
-          // eslint-disable-next-line no-underscore-dangle
-          newService.tel = newService.content.service.contact.telephone.__text;
-          // eslint-disable-next-line no-underscore-dangle
-          newService.address = `${newService.content.service.address.addressLine[0].__text}, ${newService.content.service.address.addressLine[1].__text}, ${newService.content.service.address.addressLine[2].__text}, ${newService.content.service.address.postcode.__text}`;
-        }
-      }
-      if (newService.link) {
-        // eslint-disable-next-line no-underscore-dangle
-        newService.choicesUrl = newService.link[1]._href;
-        if (uniqueUrls.includes(newService.choicesUrl)) {
-          newService = null;
-        } else {
-          uniqueUrls.push(newService.choicesUrl);
-        }
-      }
-    }
-    if (newService) {
-      if (result.feed.type == 'pharmacy') {
-        pharmacies.push(newService);
-      } else if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
-        onlineProviders.push(newService);
+      newService.choicesUrl = `${baseURL}?id=${newService.OrganisationID}`;
+      if (uniqueURLs.includes(newService.choicesUrl)) {
+        newService = null;
       } else {
-        SHProviders.push(newService);
+        uniqueURLs.push(newService.choicesUrl);
       }
     }
-  });
+  }
 
-  res.locals.pharmacies = pharmacies;
-  res.locals.onlineProviders = onlineProviders;
-  res.locals.SHProviders = SHProviders;
 
-  // log.info(pharmacies);
-  // log.info(onlineProviders);
-  // log.info(SHProviders);
+  if (newService) {
+    if ((result.OrganisationTypeID == 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
+      pharmacies.push(newService);
+    } else if ((result.feed !== undefined) && (result.feed.online !== undefined) && (result.feed.online === 'true')) {
+      onlineProviders.push(newService);
+    } else {
+      SHProviders.push(newService);
+    }
+  }
+});
+
+  res.locals.pharmacies = pharmacies.slice(0, 5);
+  res.locals.onlineProviders = onlineProviders.slice(0, 5);
+  res.locals.SHProviders = SHProviders.slice(0, 5);
+
+  log.info(pharmacies.length);
+  log.info(onlineProviders.length);
+  log.info(SHProviders.length);
 }
 
 module.exports = getServices;

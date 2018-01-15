@@ -17,9 +17,11 @@ const chalk = require('chalk')
 const favicon = require('serve-favicon')
 const helmet = require('helmet')
 const getServices = require('./app/middleware/getServices')
+// const prepData = require('./config/prepData')
 const loadData = require('./config/loadData')
 const validator = require('express-validator')
 
+// prepData()
 loadData()
 
 /**
