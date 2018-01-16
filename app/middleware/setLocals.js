@@ -1,8 +1,28 @@
+const log = require('../lib/logger');
+
+function processPreferredTimes(prefTimes) {
+  log.info(prefTimes);
+  if (prefTimes.length === 5) {
+    return ['all'];
+  } else if (prefTimes.length === 4) {
+    if (prefTimes.contains("wend")) {
+      return ['all'];
+    } else {
+      return ['wdays'];
+    }
+  }
+  return prefTimes;
+}
+
 function fromRequest(req, res, next) {
   res.locals.hasSymptoms = req.query.hasSymptoms;
   res.locals.age = req.query.age;
-  res.locals.multiChoose = ((res.locals.multiChoose === 'string') ?
-    req.query.multiChoose.split('') : req.query.multiChoose.split(','));
+  res.locals.multiChoose = (req.query.multiChoose.includes(',') ?
+    req.query.multiChoose.split(',') : [req.query.multiChoose]);
+  let prefTimes = (req.query.prefTimes.includes(',') ?
+    req.query.prefTimes.split(',') : [req.query.prefTimes]);
+  res.locals.prefTimes = processPreferredTimes(prefTimes);
+
   if (req.query.loc1 !== undefined) {
     res.locals.search =  req.query.loc1;
   } else {

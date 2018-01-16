@@ -1,7 +1,7 @@
  module.exports = function (input, req) {
-  if (input.preferredTimes !== undefined) {
+  if (input.prefTimes !== undefined) {
     req.session.validated = Object.assign({}, req.session.validated, {
-      time: input.preferredTimes
+      prefTimes: input.prefTimes
     })
     input.multiChoose = req.session.validated.multiChoose
     if (((input.multiChoose.includes('location')) || (input.multiChoose.includes('pharmacy'))) && (input.multiChoose.includes('online'))) {

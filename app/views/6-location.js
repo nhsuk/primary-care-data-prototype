@@ -3,7 +3,7 @@ module.exports = function (input, req) {
     req.session.validated = Object.assign({}, req.session.validated, {
       loc: input.loc
     })
-    input.redirect = `/7-results?loc=${input.loc}&multiChoose=${req.session.validated.multiChoose}&hasSymptoms=${req.session.validated.hasSymptoms}&age=${req.session.validated.age}`
+    input.redirect = `/7-results?loc=${input.loc}&multiChoose=${req.session.validated.multiChoose}&prefTimes=${req.session.validated.prefTimes}&hasSymptoms=${req.session.validated.hasSymptoms}&age=${req.session.validated.age}`
   }
 
   input.multiChoose = req.session.validated.multiChoose;
@@ -12,7 +12,7 @@ module.exports = function (input, req) {
   } else if (input.multiChoose.includes('location')) {
     input.locationHeading = 'Where do you want to find a sexual health professional?'
   } else {
-    input.locationHeading = 'Where do you want to get a self-test kit from?'
+    input.locationHeading = 'Where do you want to get a test kit from?'
   }
 
   return input

@@ -1,7 +1,7 @@
 {{#if this.partialHeadingExists}}
-  <h2 style="font-size: 26px; line-height: 30px; margin-bottom: 32px;">{{this.partialHeading}}</h2>
+  <h2>{{this.partialHeading}}</h2>
 {{/if}}
 
 {{#each this.pharmacies}}
-    {{> service service=this}}
+    {{> service service=this pickup=true location=false}}
 {{/each}}

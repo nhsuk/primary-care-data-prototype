@@ -1,8 +1,12 @@
-<a href="{{ service.choicesUrl }}"><span style="font-size: 22px; font-weight: 600; ">{{ service.name }}</span></a> <a href="{{ service.mapUrl }}">(View on map)</a><br />
-<span style="font-size:14px;">{{ service.distance }} miles away</span><br />
+<span>{{ service.name }}</span></a> <a href="{{ service.mapUrl }}">(View on map)</a><br />
+<span>{{ service.distance }} miles away</span><br />
 {{ service.address }}<br />
 Telephone: <a href="tel:{{ service.tel }}"></a>{{ service.tel }}
-<br /><br />
-{{> (partial service.snip) }}
-{{> (partial service.openingTimes) }}
+{{> (partial service.snip) pickup=pickup location=location}}
+{{> (partial service.openingTimes) pickup=pickup location=location}}
+
+{{#if service.bookingUrl }}
+    <p><a href="{{ service.bookingUrl }}"><button class="button">Book an appointment</button></a></p>
+{{/if}}
+
 <br /><br />
