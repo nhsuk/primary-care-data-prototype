@@ -65,6 +65,7 @@
     "portscanner": "^2.1.1",
     "postcodesio-client": "^0.3.1",
     "prompt": "^1.0.0",
+    "querystring": "^0.2.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.2.1",
     "serve-favicon": "~2.4.2",
