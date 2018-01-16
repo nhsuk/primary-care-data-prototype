@@ -174,11 +174,11 @@ function mapResults(results, res) {
     return;
   }
 
-  if (ageFilter >= 25) {
-    if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
-      return;
-    }
-  }
+  // if (ageFilter >= 25) {
+  //   if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
+  //     return;
+  //   }
+  // }
 
   if (symptomFilter === 'yes') {
     if ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))) {
@@ -283,16 +283,18 @@ function mapResults(results, res) {
   if (newService) {
     if ((result.OrganisationTypeID == 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
       pharmacies.push(newService);
-      newService.snip = (ageFilter >= 25) ? 'snip-pharmacy': 'snip-pharmacy-u25';
+      if (newService.name.includes("3 In 1")) {
+        newService.snip = 'snip-3in1-u25';
+      } else {
+        newService.snip = (ageFilter >= 25) ? 'snip-pharmacy' : 'snip-pharmacy-u25';
+      }
     // } else if ((result.feed !== undefined) && (result.feed.online !== undefined) && (result.feed.online === 'true')) {
     //   onlineProviders.push(newService);
     } else if (result.OrganisationTypeID == 'online') {
       onlineProviders.push(newService);
     } else {
       SHProviders.push(newService);
-      if (newService.name.includes("3 in 1")) {
-        newService.snip = 'snip-3in1-u25';
-      } else if (newService.name.includes("3 in 1")) {
+      if (newService.name.includes("CaSH")) {
         newService.snip = (ageFilter >= 25) ? 'snip-generic-cash': 'snip-generic-cash-u25';
       } else {
         newService.snip = (ageFilter >= 25) ? 'snip-location-generic': 'snip-location-generic-u25';
