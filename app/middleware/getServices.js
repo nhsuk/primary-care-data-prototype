@@ -149,12 +149,12 @@ function mapResults(results, res) {
   const ageFilter = res.locals.age;
 
   const allOpeningTimes = ['opening-times-aroundworkweekdays', 'opening-times-lunchweekdays', 'opening-times-oohweekdays', 'opening-times-weekdays', 'opening-times-weekend'];
-  const allSnips = ['snip-3in1', 'snip-generic-cash', 'snip-location-generic', 'snip-location-generic-u25', 'snip-pharmacy', 'snip-pharmacy-u25'];
+  const allSnips = ['snip-3in1-u25', 'snip-generic-cash','snip-generic-cash-u25', 'snip-location-generic', 'snip-location-generic-u25', 'snip-pharmacy', 'snip-pharmacy-u25'];
 
 
   const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice'];
   const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
-  const u25Variances = ['3 in 1', 'Young People Friendly Practice', 'Under 25s Drop In'];
+  const u25Variances = ['3 in 1', 'Under 25s Drop In'];
 
   let saddr = `${res.locals.postcodeLocationDetails.location.lat},${res.locals.postcodeLocationDetails.location.lon}`;
 
@@ -184,6 +184,7 @@ function mapResults(results, res) {
     if ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))) {
       return;
     }
+
     // if ((result.feed.online !== undefined) && (result.feed.online === 'true')) {
     //   return;
     // }
@@ -215,10 +216,9 @@ function mapResults(results, res) {
   if (newService) {
     newService.name = newService.OrganisationName;
     if (!(newService.OrganisationID == 'online')) {
+
+      // newService.snip = allSnips[Math.floor(Math.random() * allSnips.length)];
       newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
-      newService.snip = allSnips[Math.floor(Math.random() * allSnips.length)];
-      log.info(newService.openingTimes);
-      log.info(newService.snip);
 
       newService.distance = result.distanceInMiles.toFixed(1);
       newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
@@ -283,12 +283,20 @@ function mapResults(results, res) {
   if (newService) {
     if ((result.OrganisationTypeID == 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
       pharmacies.push(newService);
+      newService.snip = (ageFilter >= 25) ? 'snip-pharmacy': 'snip-pharmacy-u25';
     // } else if ((result.feed !== undefined) && (result.feed.online !== undefined) && (result.feed.online === 'true')) {
     //   onlineProviders.push(newService);
     } else if (result.OrganisationTypeID == 'online') {
       onlineProviders.push(newService);
     } else {
       SHProviders.push(newService);
+      if (newService.name.includes("3 in 1")) {
+        newService.snip = 'snip-3in1-u25';
+      } else if (newService.name.includes("3 in 1")) {
+        newService.snip = (ageFilter >= 25) ? 'snip-generic-cash': 'snip-generic-cash-u25';
+      } else {
+        newService.snip = (ageFilter >= 25) ? 'snip-location-generic': 'snip-location-generic-u25';
+      }
     }
   }
 });
