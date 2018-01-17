@@ -1,13 +1,16 @@
 function postcodeProximityMessage(searchPostcode) {
   let returnValue = '';
 
-  if (searchPostcode) {
-    if (searchPostcode.isOutcode) {
-      returnValue += ` close to the '${searchPostcode.term}' area`;
-    } else {
-      returnValue += ` near to '${searchPostcode.term}'`;
-    }
-  }
+  // if (searchPostcode) {
+  //   if (searchPostcode.isOutcode) {
+  //     returnValue += ` close to the '${searchPostcode.term}' area`;
+  //   } else {
+  //     returnValue += ` near '${searchPostcode.term}'`;
+  //   }
+  // }
+
+  returnValue += ` near '${searchPostcode.term}'`;
+
   return returnValue;
 }
 

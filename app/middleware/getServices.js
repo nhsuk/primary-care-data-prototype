@@ -20,11 +20,11 @@ function getServices(req, res, next) {
   } else {
     const latitude = res.locals.postcodeLocationDetails.location.lat; // res.query.latitude;
     const longitude = res.locals.postcodeLocationDetails.location.lon; // res.query.longitude;
-    const nearby = req.query['limits:results:nearby'] || 123;
+    const nearby = req.query['limits:results:nearby'] || 125;
     // const open = req.query['limits:results:open'] || 1;
     // Given how search performance is impacted by the radius of the search
     // it has intentionaly not been allowed to be specificed by the client
-    const searchRadius = 50; // TODO: no data under 40
+    const searchRadius = 50000; // 50km
 
     const searchPoint = { latitude, longitude };
     const geo = cache.get('geo');
@@ -150,9 +150,6 @@ function mapResults(results, res) {
 
   const allOpeningTimes = ['opening-times-outworkwdays', 'opening-times-lunchwdays', 'opening-times-oohwdays',
     'opening-times-wdays', 'opening-times-wend'];
-  const allSnips = ['snip-location-cash', 'snip-cash-u25', 'snip-location-generic',
-    'snip-pickup-3in1-u25', 'snip-pickup-dropin-u25', 'snip-pickup-pharmacy-u25', 'snip-pickup-pharmacy'];
-
 
   const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice'];
   const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
@@ -203,30 +200,29 @@ function mapResults(results, res) {
 
       if (!(newService.OrganisationID === 'online')) {
 
-        // newService.snip = allSnips[Math.floor(Math.random() * allSnips.length)];
-        newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
-
-        newService.distance = result.distanceInMiles.toFixed(1);
-        newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
-          `${(newService.Address2) ? newService.Address2 + ',' : '' } ` +
-          `${(newService.Address3) ? newService.Address3 + ',' : '' } ` +
-          `${newService.Postcode}`;
-
-        newService.tel = `0113${Math.floor(1000000 + Math.random() * 9000000)}`;
-
-        const params = {
-          saddr,
-          daddr: `${newService.address}`,
-          near: `${newService.address}`
-        };
-
-        // eslint-disable-next-line no-param-reassign
-        newService.mapUrl = `https://maps.google.com/maps?${qs.stringify(params)}`;
-
-        if (uniqueDistances.includes(newService.distance)) {
+        if (uniqueDistances.includes(newService.distanceInMiles)) {
           newService = null;
         } else {
-          uniqueDistances.push(newService.distance);
+          uniqueDistances.push(newService.distanceInMiles);
+          // newService.snip = allSnips[Math.floor(Math.random() * allSnips.length)];
+          newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
+
+          newService.distance = result.distanceInMiles.toFixed(1);
+          newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
+            `${(newService.Address2) ? newService.Address2 + ',' : '' } ` +
+            `${(newService.Address3) ? newService.Address3 + ',' : '' } ` +
+            `${newService.Postcode}`;
+
+          newService.tel = `0113${Math.floor(1000000 + Math.random() * 9000000)}`;
+
+          const params = {
+            saddr,
+            daddr: `${newService.address}`,
+            near: `${newService.address}`
+          };
+
+          // eslint-disable-next-line no-param-reassign
+          newService.mapUrl = `https://maps.google.com/maps?${qs.stringify(params)}`;
         }
       }
 
@@ -256,15 +252,16 @@ function mapResults(results, res) {
     }
 
     if (newService) {
-      if ((result.OrganisationTypeID == 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
+      if ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
         pharmacies.push(newService);
         if (newService.name.includes("3 In 1")) {
           newService.snip = 'snip-pickup-3in1-u25';
         } else {
           newService.snip = (ageFilter >= 25) ? 'snip-pickup-pharmacy' : 'snip-pickup-pharmacy-u25';
         }
-      } else if (result.OrganisationTypeID == 'online') {
+      } else if (result.OrganisationTypeID === 'online') {
         onlineProviders.push(newService);
+        newService.snip = (ageFilter >= 25) ? 'snip-online' : 'snip-online-u25';
       } else {
         SHProviders.push(newService);
         if (newService.name.includes("CaSH")) {
@@ -276,11 +273,14 @@ function mapResults(results, res) {
       //  special case CaSH - show in both lists!
       if (newService.name.includes("CaSH") && (ageFilter < 25)) {
         pharmacies.push(newService);
-        newService.u25 = true;
       }
     }
   });
-  
+
+  log.info(pharmacies.length);
+  log.info(onlineProviders.length);
+  log.info(SHProviders.length);
+
   res.locals.pharmacies = pharmacies.slice(0, 5);
   res.locals.onlineProviders = onlineProviders.slice(0, 5);
   res.locals.SHProviders = SHProviders.slice(0, 5);
