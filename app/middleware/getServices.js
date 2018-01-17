@@ -248,7 +248,7 @@ function mapResults(results, res) {
 
           // newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
 
-          newService.distance = result.distanceInMiles.toFixed(1);
+          newService.distance = parseFloat(result.distanceInMiles.toFixed(1));
           newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
             `${(newService.Address2) ? newService.Address2 + ',' : '' } ` +
             `${(newService.Address3) ? newService.Address3 + ',' : '' } ` +
@@ -301,10 +301,11 @@ function mapResults(results, res) {
           newService.snip = 'snip-pickup-3in1-u25';
           newService.openingTimes = 'opening-times-outworkwdays';
         } else {
-          newService.snip = (ageFilter >= 25) ? 'snip-pickup-pharmacy' : 'snip-pickup-pharmacy-u25';
           if (newService.name.includes("Under 25s Drop In")) {
+            newService.snip = 'snip-pickup-dropin-u25';
             newService.openingTimes = 'opening-times-outworkwdays';
           } else {
+            newService.snip = (ageFilter >= 25) ? 'snip-pickup-pharmacy' : 'snip-pickup-pharmacy-u25';
             newService.openingTimes = 'opening-times-all';
           }
         }

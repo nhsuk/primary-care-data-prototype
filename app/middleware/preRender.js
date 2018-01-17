@@ -44,7 +44,7 @@ function preRender(req, res, next) {
       if ((multiChoose.includes('location')) && (multiChoose.includes('pharmacy'))) {
         if (parseInt(age) >= 25) {
           partials = ['sexual-health-providers', 'pharmacies'];
-          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders },
+          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders },
             { partialHeadingExists: true, partialHeading: 'Places where you can buy a test kit', pharmacies: res.locals.pharmacies} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
           partials = ['pharmacies', 'sexual-health-providers'];
@@ -55,12 +55,12 @@ function preRender(req, res, next) {
       if ((multiChoose.includes('online')) && (multiChoose.includes('location'))) {
         if (parseInt(age) >= 25) {
           partials = ['sexual-health-providers', 'online-providers'];
-          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders },
+          res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders },
             { partialHeadingExists: true, partialHeading: 'Buy a test kit online', onlineProviders: res.locals.onlineProviders} ];
         } else if ((parseInt(age) >= 16) && (parseInt(age) < 25)) {
           partials = ['online-providers', 'sexual-health-providers'];
           res.locals.partialContexts = [ { partialHeadingExists: true, partialHeading: 'Order a free test kit online', onlineProviders: res.locals.onlineProviders},
-            { partialHeadingExists: true, partialHeading: 'Places you can see a a sexual health professional', SHProviders: res.locals.SHProviders } ];
+            { partialHeadingExists: true, partialHeading: 'Places you can see a sexual health professional', SHProviders: res.locals.SHProviders } ];
         }
       }
       if ((multiChoose.includes('online')) && (multiChoose.includes('pharmacy'))) {
