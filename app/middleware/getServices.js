@@ -151,7 +151,7 @@ function mapResults(results, res) {
   const allOpeningTimes = ['opening-times-outworkwdays', 'opening-times-lunchwdays', 'opening-times-oohwdays',
     'opening-times-wdays', 'opening-times-wend'];
 
-  const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice'];
+  const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice', 'MESMAC'];
   const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
   const u25Variances = ['3 in 1', 'Under 25s Drop In'];
 
