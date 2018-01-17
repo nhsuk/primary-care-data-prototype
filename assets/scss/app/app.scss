@@ -1,1 +1,40 @@
-// Add your custom CSS here
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.callout--muted {
+    background-color: #f0f4f5;
+    border: solid #768692;
+    border-width: 0 0 0 4px;
+    padding:20px 10px;
+}
+.page-section {
+  font-size:20px;
+  line-height:32px;
+  width: 63.2666%;
+  margin:0;
+}
+
+.page-section h2 {
+  font-size:26px;
+  line-height: 30px;
+  margin-bottom: 32px;
+}
+.page-section h2:first-child {
+  font-size:32px;
+  line-height: 48px;
+  margin-bottom:0;
+}
+
+h2 + span,
+details + p + br + br + span,
+details + br + br + span {
+  font-weight:600;
+  font-size:22px;
+}
+h2 + span + a + br + span,
+details + p + br + br + span + a + br + span,
+details + br + br + span + a + br + span {
+  font-size:16px;
+}
