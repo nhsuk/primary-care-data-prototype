@@ -145,15 +145,15 @@ function mapResults(results, res) {
 
   const symptomFilter = res.locals.hasSymptoms;
   const locationFilter = res.locals.multiChoose;
-  // const timeFilter = res.locals.prefTimes;
+  const timeFilter = res.locals.prefTimes;
   const ageFilter = res.locals.age;
 
   const allOpeningTimes = ['opening-times-outworkwdays', 'opening-times-lunchwdays', 'opening-times-oohwdays',
     'opening-times-wdays', 'opening-times-wend'];
 
   const unavailableServices = ['Marie Stopes', 'Young People Friendly Practice', 'MESMAC'];
-  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds', '3 in 1', 'Under 25s Drop In'];
-  const u25Variances = ['3 in 1', 'Under 25s Drop In'];
+  const pharmacyVariances = ['pharmacy', 'chemist', 'Boots', 'Lloyds'];
+  const u25PickUpVariances = ['3 in 1', 'Under 25s Drop In'];
 
   let saddr = `${res.locals.postcodeLocationDetails.location.lat},${res.locals.postcodeLocationDetails.location.lon}`;
 
@@ -162,18 +162,57 @@ function mapResults(results, res) {
   results.forEach((result) => {
     var newService = result;
 
+    if (!(result.OrganisationTypeID === 'online')) {
+      if ((new RegExp(timeFilter.join("|"), 'i').test('lunchwdays') && (new RegExp(timeFilter.join("|"), 'i').test('outworkwdays')))) {
+        if (!(new RegExp(timeFilter.join("|"), 'i').test('wdays'))) {
+          if (!((result.OrganisationTypeID === 'PHA')
+              || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))
+              || (result.OrganisationName === 'Leeds Centre For Sexual Health')
+              || (result.OrganisationName.includes("CaSH")))) {
+            return;
+          }
+        }
+      } else {
+        if (!(new RegExp(timeFilter.join("|"), 'i').test('wdays'))) {
+          if (new RegExp(timeFilter.join("|"), 'i').test('lunchwdays')) {
+            if (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName)) {
+              return;
+            }
+          }
+          if (new RegExp(timeFilter.join("|"), 'i').test('outworkwdays')) {
+            if (result.OrganisationName.includes("CaSH")) {
+              return;
+            }
+          }
+        }
+      }
+
+      if ((!(new RegExp(timeFilter.join("|"), 'i').test('wdays')))
+        && ((new RegExp(timeFilter.join("|"), 'i').test('wend'))
+          || (new RegExp(timeFilter.join("|"), 'i').test('oohwdays')))) {
+        if (!(((result.OrganisationTypeID === 'PHA')
+            || ((new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))
+              && (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName))))
+            || (result.OrganisationName === 'Leeds Centre For Sexual Health'))) {
+          return;
+        }
+      }
+    }
+
     if (new RegExp(unavailableServices.join("|"), 'i').test(result.OrganisationName)) {
       return;
     }
 
     if (ageFilter >= 25) {
-      if (new RegExp(u25Variances.join("|"), 'i').test(result.OrganisationName)){
+      if (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName)) {
         return;
       }
     }
 
     if (symptomFilter === 'yes') {
-      if ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))) {
+      if ((result.OrganisationTypeID === 'PHA')
+          || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName)
+          || (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName)))) {
         return;
       }
 
@@ -186,8 +225,10 @@ function mapResults(results, res) {
         return;
       }
 
-      if (!locationFilter.includes('pharmacy') &&
-        ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName)))) {
+      if (!(locationFilter.includes('pharmacy')) &&
+        ((result.OrganisationTypeID === 'PHA')
+          || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))
+          || (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName)))) {
         return;
       }
     }
@@ -204,8 +245,8 @@ function mapResults(results, res) {
           newService = null;
         } else {
           uniqueDistances.push(newService.distanceInMiles);
-          // newService.snip = allSnips[Math.floor(Math.random() * allSnips.length)];
-          newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
+
+          // newService.openingTimes = allOpeningTimes[Math.floor(Math.random() * allOpeningTimes.length)];
 
           newService.distance = result.distanceInMiles.toFixed(1);
           newService.address = `${(newService.Address1) ? newService.Address1 + ',' : '' } ` +
@@ -252,12 +293,20 @@ function mapResults(results, res) {
     }
 
     if (newService) {
-      if ((result.OrganisationTypeID === 'PHA') || (new RegExp(pharmacyVariances.join("|"), 'i').test(newService.name))) {
+      if ((result.OrganisationTypeID === 'PHA')
+          || (new RegExp(pharmacyVariances.join("|"), 'i').test(result.OrganisationName))
+          || (new RegExp(u25PickUpVariances.join("|"), 'i').test(result.OrganisationName))) {
         pharmacies.push(newService);
         if (newService.name.includes("3 In 1")) {
           newService.snip = 'snip-pickup-3in1-u25';
+          newService.openingTimes = 'opening-times-outworkwdays';
         } else {
           newService.snip = (ageFilter >= 25) ? 'snip-pickup-pharmacy' : 'snip-pickup-pharmacy-u25';
+          if (newService.name.includes("Under 25s Drop In")) {
+            newService.openingTimes = 'opening-times-outworkwdays';
+          } else {
+            newService.openingTimes = 'opening-times-all';
+          }
         }
       } else if (result.OrganisationTypeID === 'online') {
         onlineProviders.push(newService);
@@ -266,8 +315,14 @@ function mapResults(results, res) {
         SHProviders.push(newService);
         if (newService.name.includes("CaSH")) {
           newService.snip = (ageFilter >= 25) ? 'snip-location-cash' : 'snip-cash-u25';
+          newService.openingTimes = 'opening-times-lunchwdays';
         } else {
           newService.snip = 'snip-location-generic';
+          if (newService.name === 'Leeds Centre For Sexual Health') {
+            newService.openingTimes = 'opening-times-all';
+          } else {
+            newService.openingTimes = 'opening-times-wdays';
+          }
         }
       }
       //  special case CaSH - show in both lists!

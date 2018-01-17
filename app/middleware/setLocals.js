@@ -5,8 +5,8 @@ function processPreferredTimes(prefTimes) {
   if (prefTimes.length === 5) {
     return ['all'];
   } else if (prefTimes.length === 4) {
-    if (prefTimes.contains("wend")) {
-      return ['all'];
+    if (prefTimes.contains("wend") || prefTimes.contains("oohwdays")) {
+      return ['wend'];
     } else {
       return ['wdays'];
     }
