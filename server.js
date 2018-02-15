@@ -49,9 +49,9 @@ let app = express()
 
 // Authenticate against the environment-provided credentials, if running
 // the app in production
-if (env === 'production' && useAuth === 'true') {
-  app.use(utils.productionAuth(username, password))
-}
+// if (env === 'production' && useAuth === 'true') {
+//   app.use(utils.productionAuth(username, password))
+// }
 
 // set view engine to handlebars
 const hbs = handlebars.create({
